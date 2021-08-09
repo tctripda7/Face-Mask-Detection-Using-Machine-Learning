@@ -108,12 +108,12 @@ while True:
 		label = "Mask" if mask > withoutMask else "No Mask"
 		color = (0, 255, 0) if label == "Mask" else (0, 0, 255)
 
-		# if(label == "No Mask"):
-		# 	server = smtplib.SMTP_SSL("smtp.gmail.com",465)
-		# 	server.login("chaudharytripda@gmail.com","")
-		#
-		# 	server.sendmail("chaudharytripda@gmail.com","chaudharytripda5@gmail.com","Warning! Person is not wearing the mask")
-		# 	server.quit()
+		if(label == "No Mask"):
+			server = smtplib.SMTP_SSL("smtp.gmail.com",465)
+			server.login("sender's mail","password")
+		
+			server.sendmail("sender's mail","receiver's mail","Warning! Person is not wearing the mask")
+			server.quit()
 
 		# include the probability in the label
 		label = "{}: {:.2f}%".format(label, max(mask, withoutMask) * 100)
